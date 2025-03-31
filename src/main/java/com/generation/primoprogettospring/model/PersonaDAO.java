@@ -1,4 +1,7 @@
 package com.generation.primoprogettospring.model;
 
-public interface PersonaDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PersonaDAO extends JpaRepository<Persona,Long>
+{
 }
