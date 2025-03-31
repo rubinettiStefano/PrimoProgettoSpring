@@ -1,5 +1,5 @@
 package com.generation.primoprogettospring.controllers;
-
+// /esempio1
 import com.generation.primoprogettospring.model.Persona;
 import com.generation.primoprogettospring.model.PersonaDAO;
 import com.generation.primoprogettospring.services.Traduttore;
@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class PrimoController
@@ -55,7 +57,21 @@ public class PrimoController
 
 		m.addAttribute("numeromagico",1);
 		//Il model contiene tutte le variabili passate alla pagina web
+
+		//THYMELEAF, che sei la libreria che uso per le view,
+		//produci una pagina web a partire dal TEMPLATE esempio1.html
 		return "esempio1";
+	}
+
+	@GetMapping("/esempio2")
+	public String esempio2(Model m)
+	{
+		Persona p = dao.findById(1L).orElse(null);
+		m.addAttribute("pers",p);
+
+		//THYMELEAF, che sei la libreria che uso per le view,
+		//produci una pagina web a partire dal TEMPLATE esempio1.html
+		return "esempio2";
 	}
 
 	@GetMapping("/esempio1brutto")
@@ -78,5 +94,17 @@ public class PrimoController
 		String tradotta = eng.traduci("s");
 		m.addAttribute("parola",tradotta);
 		return "pagina";
+	}
+
+
+	//             URI per cui il metodo si attiva
+	@GetMapping("/lista")
+	//			  nome a caso
+	public String listaPersone(Model m)
+	{
+		List<Persona> l = dao.findAll();
+
+		m.addAttribute("persone",l);
+		return  "tuttepersone";//pagina  da mandare
 	}
 }
