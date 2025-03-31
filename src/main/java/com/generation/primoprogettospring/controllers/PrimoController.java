@@ -2,7 +2,9 @@ package com.generation.primoprogettospring.controllers;
 
 import com.generation.primoprogettospring.model.Persona;
 import com.generation.primoprogettospring.model.PersonaDAO;
+import com.generation.primoprogettospring.services.Traduttore;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,14 @@ public class PrimoController
 	//spring prenditi tu un oggetto e mettilo in questa variabile
 	@Autowired
 	PersonaDAO dao;
+
+	@Autowired
+	Traduttore ita;//qui inietta il componente primary
+
+	@Autowired
+	@Qualifier("eng")
+	Traduttore eng;//qui inietta quello con qualifier "eng"
+
 
 	//sto dicendo che se entri nel mio sito, all'url /homepage
 	//ti viene restituita una pagina chiamata homepagebrutta  .html
@@ -52,5 +62,21 @@ public class PrimoController
 	public String esempio1brutto()
 	{
 		return "esempio1";
+	}
+
+	@GetMapping("/provaita")
+	public String provaita(Model m)
+	{
+		String tradotta = ita.traduci("s");
+		m.addAttribute("parola",tradotta);
+		return "pagina";
+	}
+
+	@GetMapping("/provaeng")
+	public String provaeng(Model m)
+	{
+		String tradotta = eng.traduci("s");
+		m.addAttribute("parola",tradotta);
+		return "pagina";
 	}
 }
