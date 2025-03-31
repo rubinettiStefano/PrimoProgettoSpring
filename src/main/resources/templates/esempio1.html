@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- thymeleaf è un TEMPLATE ENGINE, permette di creare pagine web
+mischiando JAVA e HTML -->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+LO RAGGIUNGETE DA BROWSER tramite localhost:8080/es1
+  RIEMPITELA CON I VOSTRI DATI
+  TITOLO -> LA MIA PRESENTAZIONE
+  sottotitolo-> nome e cognome (tutto scritto qui a mano)
+  paragrafo con i dati di residenza (potete inventarli)
+ sottotitolo-> ABOUT ME
+ paragrafo con una presentazione generica (ciao sono un ragazzo solare....)
+
+ -->
+<h1>LA MIA PRESENTAZIONE</h1>
+<!-- th:text è un ATTRIBUTO di HTML che fa uso di THYMELEAF, che permette di "usare" java
+    dentro HTML. th:text riempie con il testo a destra dell'uguale l'elemento
+    in thymeleaf per utilizzare variabili dentro il model le dobbiamo mettere
+    in ${nomevariabile}
+ -->
+<h2>
+  <span th:text="${pers.nome}"></span>
+  <span th:text="${pers.cognome}"></span>
+</h2>
+
+
+<!--
+        <span viene detta apertura del tag
+        quello che c'è prima dell > viene detto
+        ATTRIBUTO DEL TAG, gli attributi fornisco dati/
+        cambiano il comportamento.
+        th:text="${pers.nome}" è un attributo che mette
+        come CONTENUTO dell'elemento il valore della variabile
+
+        </span> viene detta chiusura del tag, indica dove finisce l'elemento
+
+        lo spazio tra apertura e chiusura viene detto CONTENUTO
+        <span th:text="${pers.nome}">  </span>
+
+-->
+</body>
+</html>
