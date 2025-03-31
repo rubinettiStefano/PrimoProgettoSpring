@@ -21,4 +21,10 @@ public class PrimoController
 	{
 		return "homepagebrutta";
 	}
+
+	@GetMapping("/es1")
+	public String es1()
+	{
+		return "es1";
+	}
 }
