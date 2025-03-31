@@ -43,7 +43,14 @@ public class PrimoController
 		//la sua chiave è pers, il valore è l'oggetto di p
 		//pers sarà utilizzabile nella pagina web
 
+		m.addAttribute("numeromagico",1);
 		//Il model contiene tutte le variabili passate alla pagina web
+		return "esempio1";
+	}
+
+	@GetMapping("/esempio1brutto")
+	public String esempio1brutto()
+	{
 		return "esempio1";
 	}
 }

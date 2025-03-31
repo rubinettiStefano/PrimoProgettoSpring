@@ -4,9 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 public class Persona
@@ -17,19 +14,6 @@ public class Persona
 
 	private String nome,cognome,presentazione,indirizzo;
 
-
-	public Persona()
-	{
-	}
-
-	public Persona(Long id, String nome, String cognome, String presentazione, String indirizzo)
-	{
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.presentazione = presentazione;
-		this.indirizzo = indirizzo;
-	}
 
 	public Long getId()
 	{
